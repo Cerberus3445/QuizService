@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public record QuestionDto(
         UUID id,
-        UUID quiz_id,
+        UUID quizId,
 
         String title,
 

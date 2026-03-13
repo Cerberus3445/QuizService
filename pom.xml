@@ -77,6 +77,18 @@
 
         <dependency>
             <groupId>org.axonframework</groupId>
+            <artifactId>axon-spring-boot-starter</artifactId>
+            <version>${axon.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.gentleman</groupId>
+            <artifactId>commom</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.axonframework</groupId>
             <artifactId>axon-test</artifactId>
             <version>${axon.version}</version>
             <scope>test</scope>

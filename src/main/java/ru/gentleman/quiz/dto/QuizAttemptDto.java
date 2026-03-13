@@ -1,20 +1,17 @@
 package ru.gentleman.quiz.dto;
 
-import org.hibernate.annotations.CreationTimestamp;
+import lombok.Builder;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Builder
 public record QuizAttemptDto(
         UUID id,
-
         UUID userId,
         UUID quizId,
-
-        Integer score,
-
         LocalDateTime createdAt,
-
-        LocalDateTime completedAt
+        LocalDateTime completedAt,
+        Boolean isActive
 ) {
 }

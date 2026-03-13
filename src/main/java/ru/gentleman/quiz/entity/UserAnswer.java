@@ -1,10 +1,7 @@
 package ru.gentleman.quiz.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 
@@ -14,9 +11,10 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
+@Table(schema = "quiz", name = "user_answers")
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(schema = "quiz", name = "user_answers")
 public class UserAnswer {
 
     @Id
@@ -28,7 +26,8 @@ public class UserAnswer {
 
     private String answer;
 
-    @CreationTimestamp
+    private Boolean isCorrect;
+
     private LocalDateTime createdAt;
 
     @ManyToOne

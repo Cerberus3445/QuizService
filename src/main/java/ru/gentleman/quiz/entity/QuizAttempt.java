@@ -1,11 +1,7 @@
 package ru.gentleman.quiz.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
+import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
@@ -16,6 +12,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(schema = "quiz", name = "quiz_attempts")
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class QuizAttempt {
@@ -27,12 +24,13 @@ public class QuizAttempt {
 
     private UUID userId;
 
-    private Integer score;
+    private int finalScore;
 
-    @CreationTimestamp
     private LocalDateTime createdAt;
 
     private LocalDateTime completedAt;
+
+    private Boolean isActive;
 
     @ManyToOne
     @JoinColumn(name = "quiz_id", referencedColumnName = "id")

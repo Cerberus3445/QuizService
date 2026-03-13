@@ -1,10 +1,7 @@
 package ru.gentleman.quiz.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.util.UUID;
@@ -13,6 +10,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(schema = "quiz", name = "questions")
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Question {
@@ -24,9 +22,15 @@ public class Question {
 
     private String title;
 
+    private String description;
+
     private String correctAnswer;
 
     private String explanation;
+
+    private int score;
+
+    private Boolean isActive;
 
     @ManyToOne
     @JoinColumn(name = "quiz_id", referencedColumnName = "id")

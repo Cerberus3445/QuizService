@@ -1,18 +1,19 @@
-package ru.gentleman.quiz.dto;
+package ru.gentleman.quiz.command;
 
 import lombok.Builder;
+import org.axonframework.modelling.command.AggregateIdentifier;
 
 import java.util.UUID;
 
 @Builder
-public record QuestionDto(
+public record UpdateQuestionCommand(
         UUID id,
+        @AggregateIdentifier
         UUID quizId,
         String title,
         String description,
         String correctAnswer,
-        int score,
         String explanation,
-        Boolean isActive
+        int score
 ) {
 }

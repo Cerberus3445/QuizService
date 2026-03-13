@@ -99,6 +99,13 @@ public class DefaultQuizService implements QuizService {
     }
 
     @Override
+    public boolean existsById(UUID id) {
+        log.info("existsById {}", id);
+
+        return this.quizRepository.existsById(id);
+    }
+
+    @Override
     @Cacheable(value = "allQuestionByQuiz", key = "#id")
     public List<QuestionDto> getAllQuestions(UUID id) {
         log.info("getAllQuestions {}", id);

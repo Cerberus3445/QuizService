@@ -11,6 +11,7 @@ import ru.gentleman.common.exception.ValidationException;
 import ru.gentleman.common.util.ValidationErrorUtils;
 import ru.gentleman.quiz.command.CreateQuizAttemptCommand;
 import ru.gentleman.quiz.command.DeleteQuizAttemptCommand;
+import ru.gentleman.quiz.command.FinishQuizAttemptCommand;
 import ru.gentleman.quiz.dto.QuizAttemptDto;
 
 import java.net.URI;
@@ -53,6 +54,21 @@ public class QuizAttemptController {
                                 Locale.getDefault()
                         )
                 );
+    }
+
+    @PatchMapping("/{id}/finish")
+    public ResponseEntity<String> finish(@PathVariable("id") UUID id) {
+        FinishQuizAttemptCommand command = new FinishQuizAttemptCommand(id);
+
+        this.commandGateway.sendAndWait(command);
+
+        return ResponseEntity.ok(
+                this.messageSource.getMessage(
+                        "info.quiz_attempt.finished",
+                        null,
+                        Locale.getDefault()
+                )
+        );
     }
 
     @DeleteMapping("/{id}")

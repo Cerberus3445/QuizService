@@ -11,6 +11,8 @@ public interface QuizService extends CrudOperations<QuizDto, UUID>{
 
     List<QuizDto> getAllByLessonId(UUID id);
 
+    boolean existsById(UUID id);
+
     List<QuestionDto> getAllQuestions(UUID id);
 
     UUID getQuizIdByQuestionId(UUID questionId);

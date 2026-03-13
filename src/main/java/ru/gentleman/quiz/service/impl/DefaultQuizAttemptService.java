@@ -40,6 +40,13 @@ public class DefaultQuizAttemptService implements QuizAttemptService {
     }
 
     @Override
+    public Boolean existsById(UUID id) {
+        log.info("existsById {}", id);
+
+        return this.quizAttemptRepository.existsById(id);
+    }
+
+    @Override
     public QuizAttemptDto getByUserIdAndQuizId(UUID userId, UUID quizId) {
         log.info("getByUserIdAndQuizId {}, {}", userId, quizId);
 

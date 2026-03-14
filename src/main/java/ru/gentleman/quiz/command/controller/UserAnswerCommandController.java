@@ -23,7 +23,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/user-answers")
 @RequiredArgsConstructor
-public class UserAnswerController {
+public class UserAnswerCommandController {
 
     private final CommandGateway commandGateway;
 

@@ -21,7 +21,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/quizzes")
 @RequiredArgsConstructor
-public class QuizController {
+public class QuizCommandController {
 
     private final CommandGateway commandGateway;
 
